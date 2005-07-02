@@ -11,7 +11,7 @@ LDFLAGS =
 LIBS= -lpspgu
 
 EXTRA_TARGETS = EBOOT.PBP
-PSP_EBOOT_TITLE = SceGu Cube
+PSP_EBOOT_TITLE = Cube Sample
 PSP_DIR_NAME=CUBE
 
 PSPSDK=$(shell psp-config --pspsdk-path)
