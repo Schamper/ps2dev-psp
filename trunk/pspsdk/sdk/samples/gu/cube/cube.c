@@ -111,7 +111,7 @@ int main(int argc, char* argv[])
 	sceGuEnable(GU_STATE_SCISSOR);
 	sceGuBlendFunc(0,2,3,0,0);
 	sceGuEnable(GU_STATE_BLEND);
-	sceGuDepthFunc(GE_ZTST_GEQUAL);
+	sceGuDepthFunc(GE_TEST_GEQUAL);
 	sceGuEnable(GU_STATE_ZTE);
 	sceGuFrontFace(GE_FACE_CW); // NOTE: not CCW
 	sceGuShadeModel(GE_SHADE_GOURAUD);
