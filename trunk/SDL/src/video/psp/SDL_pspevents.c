@@ -38,7 +38,11 @@ static char rcsid =
 
 void PSP_PumpEvents(_THIS)
 {
-	/* do nothing. */
+	/* Process callbacks.  This is required so that the Home
+	 * button can exit the game.  This also happens in the
+	 * joystick subsystem, but that subsystem may not have been
+	 * initialized by the user. */
+        sceKernelDelayThreadCB(0);
 }
 
 void PSP_InitOSKeymap(_THIS)
