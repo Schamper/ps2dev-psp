@@ -23,6 +23,9 @@ typedef struct
       u16 width;
       u16 height;
 
+      u16 twidth;
+      u16 theight;
+
       u32 *data;
 } PyImage;
 
