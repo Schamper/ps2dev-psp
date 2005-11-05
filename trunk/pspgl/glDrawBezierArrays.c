@@ -61,7 +61,7 @@ void glDrawBezierArraysPSP(GLenum mode, GLuint u, GLuint v, GLint first)
 	buf += first * vfmtp->vertex_size;
 
 	__pspgl_context_render_setup(c, vfmtp->hwformat, buf, NULL);
-	__pspgl_context_writereg_uncached(c, CMD_BEZIER, (u << 8) | v);
+	__pspgl_context_writereg_uncached(c, CMD_BEZIER, (v << 8) | u);
 	__pspgl_context_pin_textures(c);
 	__pspgl_dlist_pin_buffer(vbuf);
 
@@ -69,7 +69,7 @@ void glDrawBezierArraysPSP(GLenum mode, GLuint u, GLuint v, GLint first)
 }
 
 
-void glBezierSubdivisionPSP(GLuint u, GLuint v)
+void glPatchSubdivisionPSP(GLuint u, GLuint v)
 {
-	sendCommandi(CMD_PATCH_SUBDIV, (u << 8) | v);
+	sendCommandi(CMD_PATCH_SUBDIV, (v << 8) | u);
 }

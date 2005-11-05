@@ -96,7 +96,7 @@ void glDrawBezierRangeElementsPSP(GLenum mode, GLuint start, GLuint end,
 	idxp = ibuf->base + ibuf_offset;
 
 	__pspgl_context_render_setup(c, hwformat, vtxp, idxp);
-	__pspgl_context_writereg_uncached(c, CMD_BEZIER, (u << 8) | v);
+	__pspgl_context_writereg_uncached(c, CMD_BEZIER, (v << 8) | u);
 	__pspgl_context_pin_textures(c);
 	__pspgl_dlist_pin_buffer(vbuf);
 	__pspgl_dlist_pin_buffer(ibuf);
