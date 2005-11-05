@@ -15,14 +15,14 @@ PROFILE        := NO
 
 #****************************************************************************
 
-CC     := gcc
-CXX    := g++
-LD     := g++
-AR     := ar rc
-RANLIB := ranlib
+CC     := psp-gcc
+CXX    := psp-g++
+LD     := psp-g++
+AR     := psp-ar rc
+RANLIB := psp-ranlib
 
-DEBUG_CFLAGS     := -Wall -Wno-unknown-pragmas -Wno-format -g -DDEBUG
-RELEASE_CFLAGS   := -Wall -Wno-unknown-pragmas -Wno-format -O2
+DEBUG_CFLAGS     := -Wall -Wno-unknown-pragmas -Wno-format -G0 -g -DDEBUG
+RELEASE_CFLAGS   := -Wall -Wno-unknown-pragmas -Wno-format -O2 -G0
 
 LIBS		 :=
 
@@ -79,7 +79,7 @@ CXXFLAGS := ${CXXFLAGS} ${DEFS}
 
 OUTPUT := xmltest
 
-all: ${OUTPUT}
+#all: ${OUTPUT}
 
 
 #****************************************************************************
@@ -96,6 +96,8 @@ OBJS := $(addsuffix .o,$(basename ${SRCS}))
 #****************************************************************************
 # Output
 #****************************************************************************
+
+all: ${OBJS}
 
 ${OUTPUT}: ${OBJS}
 	${LD} -o $@ ${LDFLAGS} ${OBJS} ${LIBS} ${EXTRA_LIBS}
