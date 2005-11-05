@@ -1,5 +1,5 @@
 #include "pspgl_internal.h"
-
+#include "pspgl_buffers.h"
 
 void glNormalPointer (GLenum type, GLsizei stride, const GLvoid *pointer)
 {
@@ -18,8 +18,10 @@ void glNormalPointer (GLenum type, GLsizei stride, const GLvoid *pointer)
 	if (stride == 0)
 		stride = __pspgl_gl_sizeof(type) * 3;
 
-	psp_log("ptr=%p type=%x stride=%d\n",
-		pointer, type, stride);
+	psp_log("ptr=%p(%p) type=%x stride=%d\n",
+		pointer, __pspgl_bufferobj_deref(pspgl_curctx->vertex_array.arraybuffer,
+						 (void *)pointer),
+		type, stride);
 
 	va->size = 3;
 	va->type = type;
