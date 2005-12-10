@@ -27,11 +27,13 @@ PSP_MODULE_INFO("SaveDecrypt", 0, 1, 1);
 
 #define printf pspDebugScreenPrintf
 
-#if 1
+#if 0
+  /* Old format save with no key (Mercury) */
   const char *decrypted = "ms0:/MERCURY.BIN";
   const char *encrypted = "ms0:/PSP/SAVEDATA/ULUS100170000/MERCURY.DAT";
   const unsigned char *gamekey = NULL;
 #else
+  /* New format save with a key (GTA:LCS) */
   const char *decrypted = "ms0:/GTA.BIN";
   const char *encrypted = "ms0:/PSP/SAVEDATA/ULUS10041S0/DATA.BIN";
   const unsigned char gamekey[] = { 
@@ -79,13 +81,14 @@ int main(int argc, char *argv[])
 	if (waitbutton(PSP_CTRL_CROSS | PSP_CTRL_CIRCLE) & PSP_CTRL_CIRCLE) 
 		goto out;
 
-	printf("Working...\n");
+	printf("Working...\n\n");
 
 	ret = decrypt_file(decrypted, encrypted, gamekey);
 	if(ret < 0) {
 		printf("Error: decrypt_file() returned %d\n\n", ret);
 	} else {
-		printf("Successfully wrote %d bytes to %s\n\n", ret, decrypted);
+		printf("Successfully wrote %d bytes to\n", ret);
+		printf("  %s\n\n", decrypted);
 	}
 
 	printf("Press any button to quit\n");
