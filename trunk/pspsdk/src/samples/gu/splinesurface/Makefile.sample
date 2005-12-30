@@ -1,5 +1,5 @@
 TARGET = splinesurface
-OBJS = splinesurface.o
+OBJS = splinesurface.o ../common/callbacks.o ../common/vram.o
 
 INCDIR =
 CFLAGS = -G0 -Wall
