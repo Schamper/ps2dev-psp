@@ -1,5 +1,5 @@
 TARGET = usbhostfs
-OBJS = main.o host_driver.o exports.o
+OBJS = main.o host_driver.o kmode.o exports.o
 
 # Use the kernel's small inbuilt libc
 USE_KERNEL_LIBC = 1
