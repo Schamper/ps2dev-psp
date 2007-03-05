@@ -2,7 +2,7 @@ TARGET = asciidemo
 OBJS = main.o
 
 INCDIR = ../libpspirkeyb/include
-CFLAGS = -O2 -G0 -Wall -g
+CFLAGS = -O2 -G0 -Wall
 CXXFLAGS = $(CFLAGS) -fno-exceptions -fno-rtti
 ASFLAGS = $(CFLAGS)
 
